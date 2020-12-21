@@ -25,7 +25,8 @@
         Don't believe me?  Go ahead.  Hit reload...
   %p.normal-yellow-font
     Your password is...
-
+    %br/
+    (Click the password box to reveal the password)
   %div.payload.spoiler.notranslate#pass{ "translate" => "no" }<
     = @payload
 
@@ -43,4 +44,4 @@
       == or #{pluralize(@password.views_remaining, 'more view')} (whichever occurs first).
   - if @password.deletable_by_viewer
     %p{ :style => 'font-size: .85em;' }
-      = link_to "Nah. I've got it. Delete this secret link now.", password_path, :id => @password.url_token, :method => :delete, :data => { :confirm => 'This will expire this secret link and remove the password from the database forever.  Are you sure?' }
+      = link_to "Delete this secret link now.", password_path, :id => @password.url_token, :method => :delete, :data => { :confirm => 'This will expire this secret link and remove the password from the database forever.  Are you sure?' }
